@@ -1,14 +1,11 @@
-import React, { PureComponent } from 'react';
-import injectSheet from 'react-jss';
+import React, { useState, useEffect} from 'react';
+import { createUseStyles } from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
-import {ReactComponent as Phones} from './assets/individual_svg/panel-1-each.svg'
-import {ReactComponent as Cars} from './assets/individual_svg/panel-2-each.svg'
-import {ReactComponent as Planets} from './assets/individual_svg/panel-3-each.svg'
-import App from "./testing/App";
-import planets from "./assets/individual_svg/planets.jpg";
-import viz4 from "./assets/new_pictures/viz4.jpg";
+import mockup from "./assets/new_pictures/mockup.jpg";
+import BarChart from "./BarChart";
+import * as d3 from "d3";
 
-const styles = {
+const useStyles = createUseStyles({
     graphicContainer: {
         padding: '40vh 2vw 60vh',
         display: 'flex',
@@ -61,102 +58,102 @@ const styles = {
         },
     },
 
-};
+});
 
-class MillionMetricTons extends PureComponent {
-    state = {
-        data: 0,
-        steps: [
-            'But that global demand is expected to grow nearly 20-fold by 2050.',
-            'Vastly outpacing current supply.'
-        ],
-        progress: 0,
+const Viz4 = () => {
+
+    const [currentStepIndex, setCurrentStepIndex] = useState(0);
+    const [stepProgress, setStepProgress] = useState(0);
+    const classes = useStyles()
+
+    const copyText = [
+        'But that global demand is expected to grow nearly 20-fold by 2050.',
+        'Vastly outpacing current supply.',
+        'In the long term, the Salton Sea region will become one contributor to a ballooning global ' +
+        'market—but a strategically critical one for U.S. energy independence.'
+    ]
+
+    const onStepEnter = ({ data }) => {
+        setCurrentStepIndex(data);
+        changeData()
     };
 
-    onStepEnter = e => {
-        const { data, entry, direction} = e;
-        this.setState({ data });
-        console.log(data)
-    };
-
-    onStepExit = ({ direction, data }) => {
-        if (direction === 'up' && data === this.state.steps[0]) {
-            this.setState({ data: 0 });
+    const onStepExit = ({ direction, data }) => {
+        if (direction === 'up' && data === 0) {
+            setCurrentStepIndex(0);
+            // changeData()
         }
     };
 
-    onStepProgress = ({ progress }) => {
-        this.setState({ progress });
+    const onStepProgress = ({ progress }) => {
+        setStepProgress(progress)
     };
 
-    calculateOpacity = (step, data, progress) => {
-        console.log(step, data, progress)
-        if (step === data) {
-            return progress
-        } else if (step === data - 1) {
-            return 1 - progress * 1.5
-        } else {
-            return 0
-        }
+    const demand1 = [
+        {letter: '2020', frequency: 74, color: 'blue'},
+        {letter: '2025', frequency: 0, color: 'blue'},
+        {letter: '2030', frequency: 0, color: 'salmon'},
+        {letter: '2035', frequency: 0, color: 'salmon'},
+        {letter: '2040', frequency: 0, color: 'salmon'},
+    ]
+
+    const demand2 = [
+        {letter: '2020', frequency: 74, color: 'blue'},
+        {letter: '2025', frequency: 157, color: 'blue'},
+        {letter: '2030', frequency: 242, color: 'salmon'},
+        {letter: '2035', frequency: 700, color: 'salmon'},
+        {letter: '2040', frequency: 1160, color: 'salmon'},
+    ]
+
+    const colorFunc = (name) => name === "United States" ? "#1f8ea0" : "#1f8ea0"
+    const order = (a, b) => d3.ascending(a.letter, b.letter)
+
+    const [data, setData] = useState(demand1);
+
+    const changeData = () => {
+        setData((currentStepIndex > 1) ? demand2 : demand1);
+        console.log(currentStepIndex, data[1].frequency)
     }
 
-    render() {
-        const { data, steps, progress } = this.state;
-        const { classes } = this.props;
+    return (
+        <div>
 
-        return (
-            <div>
-
-                <div className={classes.graphicContainer}>
-                    <div className={classes.scroller}>
-                        <Scrollama
-                            onStepEnter={this.onStepEnter}
-                            onStepExit={this.onStepExit}
-                            progress
-                            onStepProgress={this.onStepProgress}
-                            offset="400px"
-                            // debug
-                        >
-                            {steps.map((value, index) => {
-                                const isVisible = value === data;
-                                const background = isVisible
-                                    ? `rgba(44,127,184, ${progress})`
-                                    : 'white';
-                                const visibility = isVisible ? 'visible' : 'hidden';
-                                return (
-                                    <Step data={index + 1} key={index}>
-                                        <div
-                                            className={classes.step}
-                                            // style={{ background }}
-                                        >
-                                            <p>{value}</p>
-                                            {/*<p style={{ visibility }}>*/}
-                                            {/*    {Math.round(progress * 1000) / 10 + '%'}*/}
-                                            {/*</p>*/}
-                                        </div>
-                                    </Step>
-                                );
-                            })}
-                        </Scrollama>
-                    </div>
-                    <div className={classes.graphic}>
-                        {/*<App width='50%'/>*/}
-                        <img className={classes.arg} src={viz4} width='100%' alt="lithium"/>
-                        {/*<iframe width="100%" height="120%" frameBorder="0"*/}
-                        {/*        src="https://observablehq.com/embed/@orioncohen/line-chart-v2?cells=chart"></iframe>*/}
-                        {/*<iframe*/}
-                        {/*    width="100%"*/}
-                        {/*    height="635"*/}
-                        {/*    frameBorder="0"*/}
-                        {/*    src="https://observablehq.com/embed/@d3/sortable-bar-chart?cell=viewof+order&cell=chart">*/}
-
-                        {/*</iframe>*/}
-                    </div>
+            <div className={classes.graphicContainer}>
+                <div className={classes.scroller}>
+                    <Scrollama
+                        onStepEnter={onStepEnter}
+                        onStepExit={onStepExit}
+                        progress
+                        onStepProgress={onStepProgress}
+                        offset="400px"
+                        // debug
+                    >
+                        {copyText.map((value, stepIndex) => {
+                            return (
+                                <Step data={stepIndex + 2} key={stepIndex}>
+                                    <div className={classes.step}>
+                                        <p>{value}</p>
+                                    </div>
+                                </Step>
+                            );
+                        })}
+                    </Scrollama>
                 </div>
-
+                <div className={classes.graphic}>
+                    <BarChart
+                        width='600px'
+                        height='600px'
+                        data={data}
+                        step={currentStepIndex}
+                        colorFunc={colorFunc}
+                        order={order}
+                    />
+                </div>
             </div>
-        );
-    }
+
+        </div>
+    );
+
 }
 
-export default injectSheet(styles)(MillionMetricTons);
+export default Viz4;

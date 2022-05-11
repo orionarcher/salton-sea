@@ -120,7 +120,7 @@ const Viz1 = () => {
         {letter: 'All Else', frequency: .900, color: 'red'},
     ]
 
-    const colorFunc = (name) => name === "United States" ? "salmon" : "grey"
+    const colorFunc = (name) => name === "United States" ? "#1f8ea0" : "grey"
 
     const order = (a, b) => d3.ascending(a.frequency, b.frequency)
     const [data, setData] = useState(lithium2);
