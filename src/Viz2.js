@@ -108,8 +108,8 @@ const Viz2 = () => {
                         {copyText.map((value, index) => {
 
                             return (
-                                <Step data={index + 1} key={index}>
-                                    <div className={classes.step}>
+                                <Step data={index + 1} key={index} >
+                                    <div className={classes.step} >
                                         <p>{value}</p>
                                     </div>
                                 </Step>

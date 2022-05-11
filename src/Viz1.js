@@ -72,7 +72,7 @@ const Viz1 = () => {
             'from smartphones to electric vehicles.',
             'More than 80% of the world\'s raw lithium is mined in Australia, Chile, and China. ',
             'The Salton Sea could help change that.',
-            'If the Salton Sea went into production tomorrow, the US would dominate global Lithium production.'
+            'If the Salton Sea went into production tomorrow, the US would become a global leader in lithium production.'
     ]
 
     useEffect( () => {
@@ -174,6 +174,8 @@ const Viz1 = () => {
                         step={currentStepIndex}
                         colorFunc={colorFunc}
                         order={order}
+                        chartTitle={'Annual Production'}
+                        axisTitle={'↑ Kilotons Lithium'}
                     />
                 </div>
             </div>

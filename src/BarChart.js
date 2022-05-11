@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import * as d3 from "d3";
 import { useRef, useEffect, useState} from 'react';
 
-function BarChart({ width, height, data, step, colorFunc, order}){
+function BarChart({ width, height, data, step, colorFunc, order, chartTitle, axisTitle}){
     const ref = useRef();
 
     // I wrote everything above draw()
@@ -33,7 +33,8 @@ function BarChart({ width, height, data, step, colorFunc, order}){
         const xRange = [marginLeft, width - marginRight] // [left, right]
         const yType = d3.scaleLinear // type of y-scale
         const yFormat = 'r'
-        const yLabel = '↑ Amount'
+        const title = chartTitle
+        const yLabel = axisTitle
         const yRange = [height - marginBottom, marginTop] // [bottom, top]
         const xPadding = 0.1 // amount of x-range to reserve to separate bars\
         const color = colorFunc // bar fill color
@@ -64,7 +65,7 @@ function BarChart({ width, height, data, step, colorFunc, order}){
 
         const svg = d3.select(ref.current)
             .attr("width", width)
-            .attr("height", height)
+            .attr("height", height + 60)
             .attr("viewBox", [0, 0, width, height])
             .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
 
@@ -74,10 +75,24 @@ function BarChart({ width, height, data, step, colorFunc, order}){
             .call(g => g.select(".domain").remove())
             .call(g => g.selectAll(".tick").call(grid))
             .call(g => g.append("text")
-                .attr("x", -marginLeft)
+                .attr("x", width / 2 - 20)
+                .attr("y", 0)
+                .attr("fill", '#1c1818')
+                .attr("text-anchor", "middle")
+                .attr("font-size", "24px")
+                .text(title));
+
+        const yGroup2 = svg.append("g")
+            .attr("transform", `translate(${marginLeft},0)`)
+            .call(yAxis)
+            .call(g => g.select(".domain").remove())
+            .call(g => g.selectAll(".tick").call(grid))
+            .call(g => g.append("text")
+                .attr("x", 10)
                 .attr("y", 10)
                 .attr("fill", "currentColor")
-                .attr("text-anchor", "start")
+                .attr("text-anchor", "middle")
+                .attr("font-size", "12px")
                 .text(yLabel));
 
         let rect = svg.append("g")
@@ -111,7 +126,7 @@ function BarChart({ width, height, data, step, colorFunc, order}){
                 .attr("class", "grid")
                 .attr("x2", width - marginLeft - marginRight)
                 .attr("stroke", "currentColor")
-                .attr("stroke-opacity", 0.1);
+                .attr("stroke-opacity", 0.0);
         }
 
         // Call chart.update(data, options) to transition to new data.
@@ -176,6 +191,13 @@ function BarChart({ width, height, data, step, colorFunc, order}){
 
                 // Transition the y-axis, then post process for grid lines etc.
                 yGroup.transition(t)
+                    .call(yAxis)
+                    .selection()
+                    .call(g => g.select(".domain").remove())
+                    .call(g => g.selectAll(".tick").selectAll(".grid").data([,]).join(grid));
+
+                // Transition the y-axis, then post process for grid lines etc.
+                yGroup2.transition(t)
                     .call(yAxis)
                     .selection()
                     .call(g => g.select(".domain").remove())

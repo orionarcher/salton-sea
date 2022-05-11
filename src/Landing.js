@@ -75,11 +75,6 @@ function Landing() {
             By Orion Cohen and Derek Schwabe
           </p>
         </div>
-        <p className={classes.acknowledgement}>
-          Created as part of a final project for UC Berkeley's Information Visualization and
-          presentation class. Special thanks to React Scrollama and it's creator @jsonkao for
-          making this project possible.
-        </p>
       </header>
     </div>
   );

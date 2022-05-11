@@ -66,7 +66,7 @@ const OpeningImageScroller = () => {
     const classes = useStyles()
     const copyText = [
         'It’s the largest enclosed lake in California. The Salton Sea, created by accident when an irrigation canal ' +
-        'flooded in the 1950s, is a 343-square-mile lake in the middle of Southern California’s barren Colorado Desert.',
+        'flooded in 1905, is a 343-square-mile lake in the middle of Southern California’s barren Colorado Desert.',
         'From the 1960s-1970s, the lake’s warm, sandy beaches drew throngs of tourists, at one point even more than ' +
         'Yosemite. But that all changed when pesticide runoff from nearby farms started leaching into the lake.',
         'Today, the Salton Sea is highly polluted and is drying up, leaving behind toxic dust that’s causing ' +

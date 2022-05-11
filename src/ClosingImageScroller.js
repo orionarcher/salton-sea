@@ -3,6 +3,7 @@ import { Scrollama, Step } from 'react-scrollama';
 import { createUseStyles } from 'react-jss';
 import impoverished from './assets/new_pictures/impoverished.jpeg'
 import zoomOut from './assets/new_pictures/zoomOut.jpeg'
+import plant from './assets/plant.jpeg'
 import './css/styles.css'
 import ImagesDiv from "./ImagesDiv";
 
@@ -10,10 +11,12 @@ const useStyles = createUseStyles({
     stepsContainer: {
         overflow: 'auto',
         paddingBottom: '0vh',
+        marginBottom: '0vh',
     },
     step: {
         position: 'relative',
         marginBottom: '80vh',
+        // paddingBottom: '40vh',
         marginTop: '0vh',
         display: 'flex',
         justifyContent: 'center',
@@ -54,16 +57,25 @@ const ClosingImageScroller = () => {
     // imagesToBePreloaded.forEach(image => { new Image().src = image })
     const images = [
         impoverished,
+        impoverished,
+        plant,
+        plant,
         zoomOut,
     ]
     images.forEach(image => { new Image().src = image })
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const classes = useStyles()
     const copyText = [
-        'Still, lithium extraction could be transformational for the high-poverty communities surrounding the lake, ' +
-        'which have some of the highest unemployment rates in the state.',
-        'Even though the Salton Sea’s lithium deposits aren’t sufficient to significantly impact future global ' +
-        'markets, it could be a game changer for the region and the state.'
+        'Lithium extraction could transform the high-poverty communities surrounding the Sea, which have ' +
+        'some of the highest unemployment rates in the state.',
+        'A successful lithium industry could also produce the long-missing resources needed to clean up the ' +
+        'Salton Sea and at last return it to its former glory.',
+        'Some experts say the California “white gold rush” is already on. Companies like General Motors and ' +
+        'Berkshire Hathaway have already announced investments in closed-loop, geothermal lithium extraction operations.',
+        'Meanwhile, state lawmakers have proposed hundreds of millions in tax incentives for lithium entrepreneurship ' +
+        'and research, with ambitious plans for California to meet one-third of demand within a few years.',
+        'But can these investments be made cleanly and equitably? Time will tell which priorities state, business, ' +
+        'and community leaders will choose.'
     ]
     // This callback fires when a Step hits the offset threshold. It receives the
     // data prop of the step, which in this demo stores the index of the step.
@@ -102,7 +114,8 @@ const ClosingImageScroller = () => {
                             <div
                                 className={classes.step}
                                 style={{
-                                    opacity: currentStepIndex === stepIndex ? 0.9 : 0.9,
+                                    opacity: 0.9,
+                                    marginBottom: stepIndex === 4 ? '40vh' : '80vh'
                                 }}
                             >
                                 <p className={classes.stepText}>

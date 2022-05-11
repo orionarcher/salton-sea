@@ -67,9 +67,9 @@ const Viz4 = () => {
     const classes = useStyles()
 
     const copyText = [
-        'But that global demand is expected to grow nearly 20-fold by 2050.',
-        'Vastly outpacing current supply.',
-        'In the long term, the Salton Sea region will become one contributor to a ballooning global ' +
+        'But global demand is expected to grow nearly 20-fold by 2050.',
+        'This would vastly outpace current supply.',
+        'In the long term, the Salton Sea region will become just one contributor to a ballooning global ' +
         'market—but a strategically critical one for U.S. energy independence.'
     ]
 
@@ -147,6 +147,8 @@ const Viz4 = () => {
                         step={currentStepIndex}
                         colorFunc={colorFunc}
                         order={order}
+                        chartTitle={'Projected Annual Demand'}
+                        axisTitle={'↑ Kilotons Lithium'}
                     />
                 </div>
             </div>

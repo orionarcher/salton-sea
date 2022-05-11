@@ -77,9 +77,9 @@ const Viz2 = () => {
     const copyText = [
         'According to estimates, the Salton Sea reservoir contains more than 1,000,000 metric tons of ' +
         'lithium—enough to meet current global demand.',
-        'That’s enough energy to build 100 million smartphones.',
+        'That’s enough energy to build 100 billion smartphones.',
         'Or 40 million electric cars.',
-        'If you used 1,000,000 tons of lithium in a single battery, you could drive a Tesla Model 3 to Pluto ' +
+        'With the energy from one million tons of lithium, you could drive a Tesla Model 3 to Pluto ' +
         '… and back.',
     ]
 
