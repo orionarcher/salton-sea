@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import newsom from './assets/newsom.jpeg'
-import pollution from './assets/pollution.jpeg'
-import postcard from './assets/postcard.jpeg'
-import salton_sea from './assets/salton_sea.jpeg'
 // import './styles.css'
 import {createUseStyles} from "react-jss";
-import bombay_beach from "./assets/bombay-beach.jpeg";
-import saltonSeaMotel from "./assets/salton-sea-motel.jpeg";
 
 const useStyles = createUseStyles({
     fullscreen: {
@@ -16,7 +10,7 @@ const useStyles = createUseStyles({
     height: '100vh',
     minWidth: '100vw',
     minHeight: '100vh',
-    transition: '1.3s',
+    transition: '1s',
     zIndex: '-100',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -26,7 +20,7 @@ const useStyles = createUseStyles({
 
 });
 
-const OpeningImagesDiv = (props) => {
+const ImagesDiv = (props) => {
     // const imagesToBePreloaded = [newsom, pollution, postcard, salton_sea]
     // imagesToBePreloaded.forEach(image => { new Image().src = image })
     const images = props.images
@@ -40,10 +34,10 @@ const OpeningImagesDiv = (props) => {
                 backgroundImage: `url(${images[props.index]})`
             }}
         >
-            {images.map(image => <img src={image} style={{opacity: 0}}/>)}
+            {images.map(image => <img src={image} width='1px' height='1px' style={{opacity: 0}} alt='alt'/>)}
         </div>
 
     )
 }
 
-export default OpeningImagesDiv;
+export default ImagesDiv;

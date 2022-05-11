@@ -1,0 +1,72 @@
+/*.App {*/
+/*    font-family: sans-serif;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.bg {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100vw;*/
+/*    height: 100vh;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    will-change: opacity;*/
+/*}*/
+
+/*html { margin:0; }*/
+
+/*.fill {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    overflow: hidden;*/
+/*    flex-shrink: 0;*/
+/*    min-width: 100%;*/
+/*    min-height: 100%;*/
+/*}*/
+/*!*.fill img {*!*/
+/*!*    flex-shrink: 0;*!*/
+/*!*    min-width: 100%;*!*/
+/*!*    min-height: 100%;*!*/
+/*!*}*!*/
+
+/*.slideshow {*/
+/*    position: relative;*/
+/*    width: 100vw; height: 100vh;*/
+/*}*/
+
+/*.slide {*/
+/*    position: absolute;*/
+/*    top: 0; left: 0; right: 0; bottom: 0; !* makes it full size *!*/
+/*    opacity: 0;*/
+/*    transition: opacity 1s;*/
+
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*}*/
+/*.slide.active {*/
+/*    opacity: 1;*/
+/*}*/
+
+/** {*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*.fullscreen {*/
+/*    !*justify-content: center;*!*/
+/*    !*align-items: center;*!*/
+/*    !*overflow: hidden;*!*/
+/*    position: sticky;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    !*flex-shrink: 0;*!*/
+/*    height: 100vh;*/
+/*    !*width: 100%;*!*/
+/*    min-width: 100vw;*/
+/*    min-height: 100vh;*/
+/*    transition: 0.5s;*/
+/*    z-index: -100;*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: cover;*/
+/*}*/
