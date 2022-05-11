@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+// App.js
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import BarChart from './charts/BarChartTest';
+
+const datas = [
+  [10, 30, 40, 20],
+  [10, 40, 30, 20, 50, 10],
+  [60, 30, 40, 20, 30]
+]
+var i = 0;
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    changeData();
+  }, []);
+
+  const changeData = () => {
+    setData(datas[i++]);
+    if(i === datas.length) i = 0;
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <h2>Graphs with React</h2>
+        <button onClick={changeData}>Change Data</button>
+        <BarChart width={600} height={400} data={data} />
+      </div>
   );
 }
 
