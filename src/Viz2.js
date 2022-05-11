@@ -36,7 +36,8 @@ const useStyles = createUseStyles({
         flexDirection: 'column',
         position: 'absolute',
         transition: '1s',
-        height: '100%',
+        maxWidth: '100%',
+        maxHeight: '100%',
     },
     scroller: {
         flexBasis: '35%',

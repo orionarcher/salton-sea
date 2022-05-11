@@ -13,13 +13,13 @@ import pollution from './assets/pollution.jpeg'
 import postcard from './assets/postcard.jpeg'
 import salton_sea from "./assets/salton_sea.jpeg";
 import saltonSeaMotel from './assets/salton-sea-motel.jpeg'
-import Viz3 from "./Viz3";
 import GrowthPlot from "./GrowthPlot";
 import BarChartTest from "./testing/BarChartTest";
 import App from "./testing/App";
 import Viz1 from "./Viz1";
 import Viz4 from "./Viz4";
 import Viz2 from "./Viz2";
+import Viz3 from "./Viz3";
 
 const imagesToBePreloaded = [bombay_beach, newsom, pollution, postcard, salton_sea, saltonSeaMotel]
 imagesToBePreloaded.forEach(image => { new Image().src = image })
@@ -29,10 +29,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
     <div>
-      {/*<Landing />*/}
-
-      {/*<OpeningImageScroller />*/}
-      {/*<Viz1 />*/}
+      <Landing />
+      <OpeningImageScroller />
+      <Viz1 />
       <Viz2 />
       <Viz3 />
       <Viz4 />
