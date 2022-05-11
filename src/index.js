@@ -4,7 +4,6 @@ import './css/index.css';
 // import App from "./App";
 import reportWebVitals from './misc/reportWebVitals';
 import OpeningImageScroller from "./OpeningImageScroller";
-import Viz2 from "./Viz2";
 import ClosingImageScroller from "./ClosingImageScroller";
 import Landing from "./Landing";
 
@@ -16,11 +15,11 @@ import salton_sea from "./assets/salton_sea.jpeg";
 import saltonSeaMotel from './assets/salton-sea-motel.jpeg'
 import Viz3 from "./Viz3";
 import GrowthPlot from "./GrowthPlot";
-import Viz4 from "./testing/Viz4Old";
 import BarChartTest from "./testing/BarChartTest";
 import App from "./testing/App";
 import Viz1 from "./Viz1";
-import Viz4beta from "./Viz4";
+import Viz4 from "./Viz4";
+import Viz2 from "./Viz2";
 
 const imagesToBePreloaded = [bombay_beach, newsom, pollution, postcard, salton_sea, saltonSeaMotel]
 imagesToBePreloaded.forEach(image => { new Image().src = image })
@@ -30,13 +29,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
     <div>
-      <Landing />
+      {/*<Landing />*/}
 
-      <OpeningImageScroller />
-      <Viz1 />
+      {/*<OpeningImageScroller />*/}
+      {/*<Viz1 />*/}
       <Viz2 />
       <Viz3 />
-      <Viz4beta />
+      <Viz4 />
       <ClosingImageScroller />
     </div>
   // </React.StrictMode>

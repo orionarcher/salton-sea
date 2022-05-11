@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import injectSheet from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
-import diagram1 from "./assets/new_pictures/diagram1.jpg";
-import diagram2 from "./assets/new_pictures/diagram2.jpg";
+import diagram1 from "../assets/new_pictures/diagram1.jpg";
+import diagram2 from "../assets/new_pictures/diagram2.jpg";
 
 const styles = {
     graphicContainer: {
@@ -60,7 +60,7 @@ const styles = {
 
 };
 
-class Viz2 extends PureComponent {
+class Viz2Old extends PureComponent {
     state = {
         data: 0,
         steps: [
@@ -145,4 +145,4 @@ class Viz2 extends PureComponent {
     }
 }
 
-export default injectSheet(styles)(Viz2);
+export default injectSheet(styles)(Viz2Old);

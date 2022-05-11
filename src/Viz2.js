@@ -1,10 +1,13 @@
-import React, { PureComponent } from 'react';
-import injectSheet from 'react-jss';
+import injectSheet, {createUseStyles} from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
 import diagram1 from "./assets/new_pictures/diagram1.jpg";
 import diagram2 from "./assets/new_pictures/diagram2.jpg";
+import ImagesDiv from "./ImagesDiv";
+import impoverished from "./assets/new_pictures/impoverished.jpeg";
+import zoomOut from "./assets/new_pictures/zoomOut.jpeg";
+import React, { useState, useEffect } from 'react';
 
-const styles = {
+const useStyles = createUseStyles({
     graphicContainer: {
         padding: '40vh 2vw 60vh',
         display: 'flex',
@@ -17,7 +20,7 @@ const styles = {
         width: '100%',
         height: '60vh',
         top: '20vh',
-        backgroundColor: '#fff',
+        // backgroundColor: '#fff',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -32,9 +35,8 @@ const styles = {
         flexBasis: '60%',
         flexDirection: 'column',
         position: 'absolute',
-        transition: '2 s'
-        // top: '20vh',
-        // height: '60vh',
+        transition: '1s',
+        height: '100%',
     },
     scroller: {
         flexBasis: '35%',
@@ -58,91 +60,73 @@ const styles = {
         },
     },
 
-};
+});
 
-class Viz2 extends PureComponent {
-    state = {
-        data: 0,
-        steps: [
-            'More than a mile below the Salton Sea lie geothermal reservoirs full of superheated ' +
-            'saltwater brine that contains lithium.',
-            'Geothermal plants are already pumping the 600 degree water up from underground to generate geothermal ' +
-            'energy before sending it back down.',
-            'Lithium extraction would add just one more step to that process, making the Salton sea one of the cleanest ' +
-            'lithium extraction operations in the world.',
-        ],
-        progress: 0,
+const Viz2 = () => {
+    const images = [
+        diagram1,
+        diagram1,
+        diagram2,
+        diagram2,
+    ]
+
+    images.forEach(image => { new Image().src = image })
+    const [currentStepIndex, setCurrentStepIndex] = useState(0);
+    const classes = useStyles()
+    const copyText = [
+        'More than a mile below the Salton Sea and the surrounding areas lie geothermal reservoirs full of superheated ' +
+        'saltwater brine that contains lithium.',
+        'Geothermal plants are already pumping the 600 degree water up from underground to generate geothermal ' +
+        'energy before sending it back down.',
+        'Since no new mining is needed, the Salton sea would be one of the cleanest lithium extraction operations in the world.',
+    ]
+
+    const onStepEnter = ({ data }) => {
+        setCurrentStepIndex(data);
     };
 
-    onStepEnter = e => {
-        const { data, entry, direction} = e;
-        this.setState({ data });
-        console.log(data)
-    };
-
-    onStepExit = ({ direction, data }) => {
-        if (direction === 'up' && data === this.state.steps[0]) {
-            this.setState({ data: 0 });
+    const onStepExit = ({ direction, data }) => {
+        if (direction === 'up' && data === 0) {
+            setCurrentStepIndex(data);
         }
     };
 
-    onStepProgress = ({ progress }) => {
-        this.setState({ progress });
-    };
 
-    calculateOpacity = (step, data, progress) => {
-        // console.log(step, data, progress)
-        if (step === data) {
-            return 1
-        } else if (step < data) {
-            return 1
-        } else {
-            return 0
-        }
-    }
+    return (
+        <div>
+            <div className={classes.graphicContainer}>
+                <div className={classes.scroller}>
+                    <Scrollama
+                        onStepEnter={onStepEnter}
+                        onStepExit={onStepExit}
+                        progress
+                        // onStepProgress={onStepProgress}
+                        offset={0.6}
+                        // debug
+                    >
+                        {copyText.map((value, index) => {
 
-    render() {
-        const { data, steps, progress } = this.state;
-        const { classes } = this.props;
-
-        return (
-            <div>
-
-                <div className={classes.graphicContainer}>
-                    <div className={classes.scroller}>
-                        <Scrollama
-                            onStepEnter={this.onStepEnter}
-                            onStepExit={this.onStepExit}
-                            progress
-                            onStepProgress={this.onStepProgress}
-                            offset={0.6}
-                            // debug
-                        >
-                            {steps.map((value, index) => {
-
-                                return (
-                                    <Step data={index + 1} key={index}>
-                                        <div className={classes.step}>
-                                            <p>{value}</p>
-                                        </div>
-                                    </Step>
-                                );
-                            })}
-                        </Scrollama>
-                    </div>
-                    <div className={classes.graphic}>
-                        <img className={classes.arg} src={diagram1} width='90%' style={{
-                            opacity: this.calculateOpacity(1, data, progress),
-                        }} alt="lithium"/>
-                        <img className={classes.arg} src={diagram2} width='90%' style={{
-                            opacity: this.calculateOpacity(2, data, progress),
-                        }} alt="lithium"/>
-                    </div>
+                            return (
+                                <Step data={index + 1} key={index}>
+                                    <div className={classes.step}>
+                                        <p>{value}</p>
+                                    </div>
+                                </Step>
+                            );
+                        })}
+                    </Scrollama>
                 </div>
-
+                <div className={classes.graphic}>
+                    <img src={diagram1} className={classes.arg} style={{
+                        opacity: currentStepIndex <= 1 ? 1 : 1
+                    }} alt={'121'}/>
+                    <img src={diagram2} className={classes.arg} style={{
+                        opacity: currentStepIndex > 1 ? 1 : 0
+                    }} alt={'121'}/>
+                </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
-export default injectSheet(styles)(Viz2);
+export default Viz2;
