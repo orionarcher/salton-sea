@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import injectSheet from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
-import {ReactComponent as Phones} from './assets/individual_svg/panel-1-each.svg'
-import {ReactComponent as Cars} from './assets/individual_svg/panel-2-each.svg'
-import {ReactComponent as Planets} from './assets/individual_svg/panel-3-each.svg'
-import App from "./testing/App";
-import planets from "./assets/individual_svg/planets.jpg";
-import viz4 from "./assets/new_pictures/viz4.jpg";
+import {ReactComponent as Phones} from '../assets/individual_svg/panel-1-each.svg'
+import {ReactComponent as Cars} from '../assets/individual_svg/panel-2-each.svg'
+import {ReactComponent as Planets} from '../assets/individual_svg/panel-3-each.svg'
+import App from "./App";
+import planets from "../assets/individual_svg/planets.jpg";
+import viz4 from "../assets/new_pictures/viz4.jpg";
 
 const styles = {
     graphicContainer: {

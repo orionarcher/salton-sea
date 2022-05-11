@@ -32,6 +32,20 @@ const useStyles = createUseStyles({
         // Fixes a problem in Safari where background color is transparent
         transform: 'translate3d(0, 0, 0)',
     },
+    fullscreen: {
+        position: 'sticky',
+        padding: '0',
+        margin: '0',
+        height: '100vh',
+        minWidth: '100vw',
+        minHeight: '100vh',
+        transition: '1s',
+        zIndex: '-100',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundColor: 'darkgray',
+    }
 });
 
 
@@ -74,7 +88,7 @@ const ClosingImageScroller = () => {
                 height: '100vh',
             }}>
 
-                <ImagesDiv index={currentStepIndex} images={images}/>
+                <ImagesDiv index={currentStepIndex} images={images} style={classes.fullscreen}/>
             </div>
             <div className={classes.stepsContainer}>
                 <Scrollama
