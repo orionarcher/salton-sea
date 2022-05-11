@@ -60,7 +60,7 @@ const styles = {
 
 };
 
-class GeothermalProcess extends PureComponent {
+class Viz2 extends PureComponent {
     state = {
         data: 0,
         steps: [
@@ -145,4 +145,4 @@ class GeothermalProcess extends PureComponent {
     }
 }
 
-export default injectSheet(styles)(GeothermalProcess);
+export default injectSheet(styles)(Viz2);

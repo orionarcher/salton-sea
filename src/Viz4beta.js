@@ -3,6 +3,7 @@ import { createUseStyles } from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
 import mockup from "./assets/new_pictures/mockup.jpg";
 import BarChart from "./BarChart";
+import * as d3 from "d3";
 
 const useStyles = createUseStyles({
     graphicContainer: {
@@ -82,12 +83,13 @@ const Viz1 = () => {
     const onStepEnter = ({ data }) => {
         setCurrentStepIndex(data);
         changeData()
+        // changeData()
     };
 
     const onStepExit = ({ direction, data }) => {
         if (direction === 'up' && data === 0) {
-            setCurrentStepIndex(0);
-            changeData()
+            // setCurrentStepIndex(0);
+            // changeData()
         }
     };
 
@@ -95,47 +97,44 @@ const Viz1 = () => {
         setStepProgress(progress)
     };
 
-    const lithium1 = [
-        {letter: 'Australia', frequency: 103.000, color: 'blue'},
-        {letter: 'Chile', frequency: 47.770, color: 'salmon'},
-        {letter: 'China', frequency: 16.600, color: 'salmon'},
-        {letter: 'Argentina', frequency: 13.670, color: 'salmon'},
-        {letter: 'Zimbabwe', frequency: 2.650, color: 'red'},
-        {letter: 'Brazil', frequency: 2.390, color: 'red'},
-        {letter: 'United States', frequency: 64.400, color: 'salmon'},
-        {letter: 'Canada', frequency: 1.200, color: 'red'},
-        {letter: 'All Else', frequency: .900, color: 'red'},
+    const demand1 = [
+        {letter: '2020', frequency: 74, color: 'blue'},
+        {letter: '2025', frequency: 0, color: 'blue'},
+        {letter: '2030', frequency: 0, color: 'salmon'},
+        {letter: '2035', frequency: 0, color: 'salmon'},
+        {letter: '2040', frequency: 0, color: 'salmon'},
     ]
 
-    const lithium2 = [
-        {letter: 'Australia', frequency: 103.000, color: 'blue'},
-        {letter: 'Chile', frequency: 47.770, color: 'red'},
-        {letter: 'China', frequency: 16.600, color: 'red'},
-        {letter: 'Argentina', frequency: 13.670, color: 'red'},
-        {letter: 'Zimbabwe', frequency: 2.650, color: 'red'},
-        {letter: 'Brazil', frequency: 2.390, color: 'red'},
-        {letter: 'United States', frequency: 1.400, color: 'salmon'},
-        {letter: 'Canada', frequency: 1.200, color: 'red'},
-        {letter: 'All Else', frequency: .900, color: 'red'},
+    const demand2 = [
+        {letter: '2020', frequency: 74, color: 'blue'},
+        {letter: '2025', frequency: 157, color: 'blue'},
+        {letter: '2030', frequency: 242, color: 'salmon'},
+        {letter: '2035', frequency: 700, color: 'salmon'},
+        {letter: '2040', frequency: 1160, color: 'salmon'},
     ]
 
-    const colorFunc = (name) => name === "United States" ? "salmon" : "grey"
+    const colorFunc = (name) => name === "United States" ? "grey" : "grey"
+    const order = (a, b) => d3.ascending(a.letter, b.letter)
 
-    const [data, setData] = useState(lithium2);
+    const [data, setData] = useState(demand1);
 
-    const datas = [lithium1, lithium2]
+    // const datas = [demand1, demand2]
 
-    useEffect(() => {
-        // const chart = changeData();
-        const i = currentStepIndex > 1 ? 0 : 1
-        setData(datas[i]);
-        console.log(i, currentStepIndex, data[6].frequency)
-    }, [currentStepIndex]);
+    // useEffect(() => {
+    //     // const chart = changeData();
+    //     const i = (currentStepIndex > 1) ? 0 : 1
+    //     changeData()
+    //     // setData(datas[i]);
+    //     // console.log(i, currentStepIndex, data[1].frequency)
+    // }, [currentStepIndex]);
 
     const changeData = () => {
-        const i = currentStepIndex > 1 ? 0 : 1
-        setData(datas[i]);
-        console.log(i, currentStepIndex, data[6].frequency)
+        // const i = (currentStepIndex > 1) ? 0 : 1
+        // console.log((currentStepIndex > 1) ? 1 : 0, currentStepIndex, data[1].frequency)
+        setData((currentStepIndex > 1) ? demand2 : demand1);
+        console.log(currentStepIndex, data[1].frequency)
+
+        // console.log(i, currentStepIndex, data[1].frequency)
         // console.log(currentStepIndex)
         // console.log(data[6].frequency)
     }
@@ -171,6 +170,7 @@ const Viz1 = () => {
                         data={data}
                         step={currentStepIndex}
                         colorFunc={colorFunc}
+                        order={order}
                     />
                 </div>
             </div>

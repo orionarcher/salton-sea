@@ -70,7 +70,7 @@ const styles = {
 
 };
 
-class MillionMetricTons extends PureComponent {
+class Viz3 extends PureComponent {
     state = {
         data: 0,
         steps: [
@@ -174,4 +174,4 @@ class MillionMetricTons extends PureComponent {
     }
 }
 
-export default injectSheet(styles)(MillionMetricTons);
+export default injectSheet(styles)(Viz3);

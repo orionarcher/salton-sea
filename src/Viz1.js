@@ -3,6 +3,7 @@ import { createUseStyles } from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
 import mockup from "./assets/new_pictures/mockup.jpg";
 import BarChart from "./BarChart";
+import * as d3 from "d3";
 
 const useStyles = createUseStyles({
     graphicContainer: {
@@ -59,7 +60,7 @@ const useStyles = createUseStyles({
 
 });
 
-const CountryBreakdown = () => {
+const Viz1 = () => {
 
     // I wrote or heavily modified everything in this class
 
@@ -87,6 +88,7 @@ const CountryBreakdown = () => {
     const onStepExit = ({ direction, data }) => {
         if (direction === 'up' && data === 0) {
             setCurrentStepIndex(0);
+            changeData()
         }
     };
 
@@ -118,6 +120,9 @@ const CountryBreakdown = () => {
         {letter: 'All Else', frequency: .900, color: 'red'},
     ]
 
+    const colorFunc = (name) => name === "United States" ? "salmon" : "grey"
+
+    const order = (a, b) => d3.ascending(a.frequency, b.frequency)
     const [data, setData] = useState(lithium2);
 
     const datas = [lithium1, lithium2]
@@ -162,7 +167,14 @@ const CountryBreakdown = () => {
                     </Scrollama>
                 </div>
                 <div className={classes.graphic}>
-                    <BarChart width='600px' height='600px' data={data} step={currentStepIndex}/>
+                    <BarChart
+                        width='600px'
+                        height='600px'
+                        data={data}
+                        step={currentStepIndex}
+                        colorFunc={colorFunc}
+                        order={order}
+                    />
                 </div>
             </div>
 
@@ -171,4 +183,4 @@ const CountryBreakdown = () => {
 
 }
 
-export default CountryBreakdown;
+export default Viz1;

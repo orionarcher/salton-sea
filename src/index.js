@@ -4,7 +4,7 @@ import './css/index.css';
 // import App from "./App";
 import reportWebVitals from './misc/reportWebVitals';
 import OpeningImageScroller from "./OpeningImageScroller";
-import GeothermalProcess from "./GeothermalProcess";
+import Viz2 from "./Viz2";
 import ClosingImageScroller from "./ClosingImageScroller";
 import Landing from "./Landing";
 
@@ -14,12 +14,13 @@ import pollution from './assets/pollution.jpeg'
 import postcard from './assets/postcard.jpeg'
 import salton_sea from "./assets/salton_sea.jpeg";
 import saltonSeaMotel from './assets/salton-sea-motel.jpeg'
-import MillionMetricTons from "./MillionMetricTons";
+import Viz3 from "./Viz3";
 import GrowthPlot from "./GrowthPlot";
-import GrowthPlotMockup from "./GrowthPlotMockup";
+import Viz4 from "./Viz4";
 import BarChartTest from "./testing/BarChartTest";
 import App from "./testing/App";
-import CountryBreakdown from "./CountryBreakdown";
+import Viz1 from "./Viz1";
+import Viz4beta from "./Viz4beta";
 
 const imagesToBePreloaded = [bombay_beach, newsom, pollution, postcard, salton_sea, saltonSeaMotel]
 imagesToBePreloaded.forEach(image => { new Image().src = image })
@@ -32,10 +33,10 @@ root.render(
       <Landing />
 
       <OpeningImageScroller />
-      <CountryBreakdown />
-      <GeothermalProcess />
-      <MillionMetricTons />
-      <GrowthPlotMockup />
+      <Viz1 />
+      <Viz2 />
+      <Viz3 />
+      <Viz4beta />
       <ClosingImageScroller />
     </div>
   // </React.StrictMode>

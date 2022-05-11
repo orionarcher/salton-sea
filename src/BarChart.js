@@ -2,11 +2,10 @@ import React, { PureComponent } from 'react';
 import * as d3 from "d3";
 import { useRef, useEffect, useState} from 'react';
 
-function BarChart({ width, height, data, step }){
+function BarChart({ width, height, data, step, colorFunc, order}){
     const ref = useRef();
 
     // I wrote everything above draw()
-    const order = (a, b) => d3.ascending(a.frequency, b.frequency)
 
     const [chart, setChart] = useState(null)
 
@@ -37,7 +36,7 @@ function BarChart({ width, height, data, step }){
         const yLabel = '↑ Amount'
         const yRange = [height - marginBottom, marginTop] // [bottom, top]
         const xPadding = 0.1 // amount of x-range to reserve to separate bars\
-        const color = "steelBlue" // bar fill color
+        const color = colorFunc // bar fill color
         const initialDuration = 1500 // transition duration, in milliseconds
         const initialDelay = (_, i) => i * 20 // per-element transition delay, in milliseconds
 
@@ -82,10 +81,11 @@ function BarChart({ width, height, data, step }){
                 .text(yLabel));
 
         let rect = svg.append("g")
-            .attr("fill", color)
             .selectAll("rect")
             .data(I)
             .join("rect")
+            .attr("fill", (d, i) => color(data[i].letter))
+
             .property("key", i => X[i]) // for future transitions
             .call(position, i => xScale(X[i]), i => yScale(Y[i]))
             .style("mix-blend-mode", "multiply")
