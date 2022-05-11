@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './css/index.css';
 // import App from "./App";
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './misc/reportWebVitals';
 import OpeningImageScroller from "./OpeningImageScroller";
-import CountryBreakdown from "./CountryBreakdown";
 import GeothermalProcess from "./GeothermalProcess";
 import ClosingImageScroller from "./ClosingImageScroller";
 import Landing from "./Landing";
@@ -18,9 +17,9 @@ import saltonSeaMotel from './assets/salton-sea-motel.jpeg'
 import MillionMetricTons from "./MillionMetricTons";
 import GrowthPlot from "./GrowthPlot";
 import GrowthPlotMockup from "./GrowthPlotMockup";
-import BarChartTest from "./charts/BarChartTest";
-import App from "./App";
-import CountryBreakdown2 from "./CountryBreakdown2";
+import BarChartTest from "./testing/BarChartTest";
+import App from "./testing/App";
+import CountryBreakdown from "./CountryBreakdown";
 
 const imagesToBePreloaded = [bombay_beach, newsom, pollution, postcard, salton_sea, saltonSeaMotel]
 imagesToBePreloaded.forEach(image => { new Image().src = image })
@@ -33,7 +32,7 @@ root.render(
       <Landing />
 
       <OpeningImageScroller />
-      <CountryBreakdown2 />
+      <CountryBreakdown />
       <GeothermalProcess />
       <MillionMetricTons />
       <GrowthPlotMockup />

@@ -8,7 +8,7 @@ import lake from './assets/new_pictures/lake.jpeg'
 import newsom from './assets/newsom.jpeg'
 import pollution from './assets/pollution.jpeg'
 import postcard from './assets/postcard.jpeg'
-import './styles.css'
+import './css/styles.css'
 import ImagesDiv from "./ImagesDiv";
 import salton_sea from "./assets/salton_sea.jpeg";
 

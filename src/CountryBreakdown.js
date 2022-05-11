@@ -59,7 +59,7 @@ const useStyles = createUseStyles({
 
 });
 
-const CountryBreakdown2 = () => {
+const CountryBreakdown = () => {
 
     // I wrote or heavily modified everything in this class
 
@@ -171,4 +171,4 @@ const CountryBreakdown2 = () => {
 
 }
 
-export default CountryBreakdown2;
+export default CountryBreakdown;

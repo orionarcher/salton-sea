@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import injectSheet from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
-import mockup from "./assets/new_pictures/mockup.jpg";
+import mockup from "../assets/new_pictures/mockup.jpg";
 
 const styles = {
     graphicContainer: {

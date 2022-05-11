@@ -5,7 +5,7 @@ import viz4 from './assets/new_pictures/viz4.jpg'
 import {ReactComponent as Phones} from './assets/individual_svg/panel-1-each.svg'
 import {ReactComponent as Cars} from './assets/individual_svg/panel-2-each.svg'
 import {ReactComponent as Planets} from './assets/individual_svg/panel-3-each.svg'
-import App from "./App";
+import App from "./testing/App";
 
 const styles = {
     graphicContainer: {

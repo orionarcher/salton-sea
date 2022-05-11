@@ -3,7 +3,7 @@ import { Scrollama, Step } from 'react-scrollama';
 import { createUseStyles } from 'react-jss';
 import impoverished from './assets/new_pictures/impoverished.jpeg'
 import zoomOut from './assets/new_pictures/zoomOut.jpeg'
-import './styles.css'
+import './css/styles.css'
 import ImagesDiv from "./ImagesDiv";
 
 const useStyles = createUseStyles({

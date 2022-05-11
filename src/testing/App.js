@@ -1,7 +1,7 @@
 // App.js
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import BarChart from './testing/BarChartTest';
+import '../css/App.css';
+import BarChart from './BarChartTest';
 
 const datas = [
   [10, 30, 40, 20],
