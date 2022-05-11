@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
 import { createUseStyles } from 'react-jss';
 import CrossfadeImage from "react-crossfade-image";
-import bombay_beach from './assets/bombay_beach.png'
+import bombay_beach from './assets/bombay-beach.jpeg'
+import pollution2 from './assets/new_pictures/pollution2.jpeg'
+import lake from './assets/new_pictures/lake.jpeg'
 import newsom from './assets/newsom.jpeg'
 import pollution from './assets/pollution.jpeg'
 import postcard from './assets/postcard.jpeg'
 import './styles.css'
-import OpeningImagesDiv from "./OpeningImagesDiv";
+import ImagesDiv from "./ImagesDiv";
 import salton_sea from "./assets/salton_sea.jpeg";
 
 const useStyles = createUseStyles({
@@ -39,11 +41,11 @@ const useStyles = createUseStyles({
 });
 
 
-const ImageScroller = () => {
+const OpeningImageScroller = () => {
     const images = [
-        salton_sea,
+        lake,
         postcard,
-        pollution,
+        pollution2,
         newsom,
     ]
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
@@ -82,14 +84,14 @@ const ImageScroller = () => {
                 height: '100vh',
             }}>
 
-                <OpeningImagesDiv index={currentStepIndex} images={images}/>
+                <ImagesDiv index={currentStepIndex} images={images}/>
             </div>
             <div className={classes.stepsContainer}>
                 <Scrollama
                     onStepEnter={onStepEnter}
                     offset={0.6}
                     threshold={1}
-                    debug
+                    // debug
                 >
                     {copyText.map((copy, stepIndex) => (
                         <Step data={stepIndex} key={stepIndex}>
@@ -111,4 +113,4 @@ const ImageScroller = () => {
     );
 };
 
-export default ImageScroller;
+export default OpeningImageScroller;

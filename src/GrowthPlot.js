@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
 import injectSheet from 'react-jss';
 import { Scrollama, Step } from 'react-scrollama';
+import viz4 from './assets/new_pictures/viz4.jpg'
 import {ReactComponent as Phones} from './assets/individual_svg/panel-1-each.svg'
 import {ReactComponent as Cars} from './assets/individual_svg/panel-2-each.svg'
 import {ReactComponent as Planets} from './assets/individual_svg/panel-3-each.svg'
+import App from "./App";
 
 const styles = {
     graphicContainer: {
@@ -60,17 +62,13 @@ const styles = {
 
 };
 
+
 class MillionMetricTons extends PureComponent {
     state = {
         data: 0,
         steps: [
-            'According to estimates, the Salton Sea reservoir contains more than 1,000,000 metric tons of ' +
-            'lithium—enough to meet current global demand. Its enough lithium to build 40 million Tesla Model 3\'s ' +
-            'or 100 billion iPhones.',
-            'If you used 1,000,000 tons of lithium in a single battery, you could drive a Tesla Model 3 to Pluto ' +
-            '… and back.',
-            'If you started watching YouTube before the dinosaurs went extinct, you would run out of battery around ' +
-            'today. In that time you could watch all of YouTube 20 times over.',
+            'But that global demand is expected to grow nearly 20-fold by 2050.',
+            'Vastly outpacing current supply.'
         ],
         progress: 0,
     };
@@ -117,24 +115,13 @@ class MillionMetricTons extends PureComponent {
                             progress
                             onStepProgress={this.onStepProgress}
                             offset="400px"
-                            debug
+                            // debug
                         >
                             {steps.map((value, index) => {
-                                const isVisible = value === data;
-                                const background = isVisible
-                                    ? `rgba(44,127,184, ${progress})`
-                                    : 'white';
-                                const visibility = isVisible ? 'visible' : 'hidden';
                                 return (
                                     <Step data={index + 1} key={index}>
-                                        <div
-                                            className={classes.step}
-                                            // style={{ background }}
-                                        >
+                                        <div className={classes.step}>
                                             <p>{value}</p>
-                                            {/*<p style={{ visibility }}>*/}
-                                            {/*    {Math.round(progress * 1000) / 10 + '%'}*/}
-                                            {/*</p>*/}
                                         </div>
                                     </Step>
                                 );
@@ -142,17 +129,9 @@ class MillionMetricTons extends PureComponent {
                         </Scrollama>
                     </div>
                     <div className={classes.graphic}>
-                        <div className={classes.arg}>
-                            <Phones width="100%" transion='2s' opacity={this.calculateOpacity(1, data, progress)}/>
-                            <Cars width="100%" transion='2s' opacity={this.calculateOpacity(1, data, progress)}/>
-                        </div>
-                        <div className={classes.arg}>
-                            <Planets width="100%" top='0vh' opacity={this.calculateOpacity(2, data, progress)}/>
-
-                        </div>
-                        {/*<Phones width="100%" transion='2s' opacity={this.calculateOpacity(1, data, progress)}/>*/}
-                        {/*<Cars width="100%" transion='2s' opacity={this.calculateOpacity(1, data, progress)}/>*/}
-                        {/*/!*<Planets width="100%" position='100px 100px' opacity={this.calculateOpacity(2, data, progress)}/>*!/*/}
+                        <img height='100%'  src={viz4}/>
+                        {/*<iframe width="100%" height="120%" frameBorder="0"*/}
+                        {/*        src="https://observablehq.com/embed/@orioncohen/line-chart-v2?cells=chart"></iframe>*/}
                     </div>
                 </div>
 

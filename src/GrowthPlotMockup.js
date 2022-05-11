@@ -5,6 +5,8 @@ import {ReactComponent as Phones} from './assets/individual_svg/panel-1-each.svg
 import {ReactComponent as Cars} from './assets/individual_svg/panel-2-each.svg'
 import {ReactComponent as Planets} from './assets/individual_svg/panel-3-each.svg'
 import App from "./App";
+import planets from "./assets/individual_svg/planets.jpg";
+import viz4 from "./assets/new_pictures/viz4.jpg";
 
 const styles = {
     graphicContainer: {
@@ -113,7 +115,7 @@ class MillionMetricTons extends PureComponent {
                             progress
                             onStepProgress={this.onStepProgress}
                             offset="400px"
-                            debug
+                            // debug
                         >
                             {steps.map((value, index) => {
                                 const isVisible = value === data;
@@ -139,8 +141,9 @@ class MillionMetricTons extends PureComponent {
                     </div>
                     <div className={classes.graphic}>
                         {/*<App width='50%'/>*/}
-                        <iframe width="100%" height="120%" frameBorder="0"
-                                src="https://observablehq.com/embed/@orioncohen/line-chart-v2?cells=chart"></iframe>
+                        <img className={classes.arg} src={viz4} width='100%' alt="lithium"/>
+                        {/*<iframe width="100%" height="120%" frameBorder="0"*/}
+                        {/*        src="https://observablehq.com/embed/@orioncohen/line-chart-v2?cells=chart"></iframe>*/}
                         {/*<iframe*/}
                         {/*    width="100%"*/}
                         {/*    height="635"*/}
