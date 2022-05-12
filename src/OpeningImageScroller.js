@@ -12,6 +12,10 @@ import './css/styles.css'
 import ImagesDiv from "./ImagesDiv";
 import salton_sea from "./assets/salton_sea.jpeg";
 
+import 'typeface-roboto'
+import 'typeface-lato'
+
+
 const useStyles = createUseStyles({
     stepsContainer: {
         overflow: 'auto',
@@ -31,7 +35,7 @@ const useStyles = createUseStyles({
         color: '#111',
         padding: '1.3rem',
         fontSize: '1.3rem',
-        fontFamily: 'Merriweather',
+        fontFamily: 'lato',
         fontWeight: 400,
         lineHeight: '1.9rem',
 

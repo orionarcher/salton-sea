@@ -7,6 +7,9 @@ import impoverished from "./assets/new_pictures/impoverished.jpeg";
 import zoomOut from "./assets/new_pictures/zoomOut.jpeg";
 import React, { useState, useEffect } from 'react';
 
+import 'typeface-lato'
+
+
 const useStyles = createUseStyles({
     graphicContainer: {
         padding: '40vh 2vw 60vh',
@@ -36,8 +39,8 @@ const useStyles = createUseStyles({
         flexDirection: 'column',
         position: 'absolute',
         transition: '1s',
-        maxWidth: '100%',
-        maxHeight: '100%',
+        maxWidth: '95%',
+        maxHeight: '130%',
     },
     scroller: {
         flexBasis: '35%',
@@ -51,7 +54,7 @@ const useStyles = createUseStyles({
             textAlign: 'center',
             padding: '1.3rem',
             fontSize: '1.3rem',
-            fontFamily: 'Merriweather',
+            fontFamily: 'lato',
             fontWeight: 400,
             lineHeight: '1.9rem',
             margin: 0,
@@ -79,6 +82,7 @@ const Viz2 = () => {
         'saltwater brine that contains lithium.',
         'Geothermal plants are already pumping the 600 degree water up from underground to generate geothermal ' +
         'energy before sending it back down.',
+        'Extracting Lithium from the brine would simply add one more step to this closed-loop process.',
         'Since no new mining is needed, the Salton sea would be one of the cleanest lithium extraction operations in the world.',
     ]
 
@@ -119,10 +123,10 @@ const Viz2 = () => {
                 </div>
                 <div className={classes.graphic}>
                     <img src={diagram1} className={classes.arg} style={{
-                        opacity: currentStepIndex <= 1 ? 1 : 1
+                        opacity: currentStepIndex <= 2 ? 1 : 1
                     }} alt={'121'}/>
                     <img src={diagram2} className={classes.arg} style={{
-                        opacity: currentStepIndex > 1 ? 1 : 0
+                        opacity: currentStepIndex > 2 ? 1 : 0
                     }} alt={'121'}/>
                 </div>
             </div>

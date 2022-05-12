@@ -3,27 +3,38 @@ import React, { useState, useEffect } from 'react';
 import bombayBeach from './assets/bombay-beach.jpeg'
 import landing from './assets/new_pictures/landing.jpeg'
 
+import 'typeface-roboto'
+import 'typeface-lato'
+
 
 const useStyles = createUseStyles({
   title: {
     color: "black",
     fontSize: "calc(10px + 4vmin)",
     width: "70vw",
-    marginTop: "3vh",
+    marginTop: "35vh",
     backgroundColor: 'rgba(255, 255, 255, 0.6)',
     borderRadius: "10px",
-    padding: "10px"
+    // padding: "5px",
+    marginBottom: 0,
+    paddingBottom: 5,
+    paddingTop: 0,
+    // lineHeight: 3,
+
   },
   byline: {
     color: "black",
-    fontSize: "calc(10px + 2vmin)",
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    lineHeight: 0,
+    marginTop: 0,
+    paddingTop: 0,
+    fontSize: "calc(20px)",
+    // backgroundColor: 'rgba(255, 255, 255, 0.6)',
     // borderRadius: "10px",
     justifyContent: "center",
-    position: "absolute",
-    bottom: "2vh",
+    // position: "absolute",
+    // bottom: "2vh",
     // marginTop: "60vh",
-    width: "40vw",
+    // width: "70vw",
   },
   acknowledgement: {
     margin: 0,
@@ -34,7 +45,7 @@ const useStyles = createUseStyles({
     justifyContent: "center",
   },
   appHeader: {
-    fontFamily: 'Merriweather',
+    fontFamily: 'lato',
     // backgroundColor: "#fff",
     // minHeight: "100vh",
     display: "flex",
@@ -67,8 +78,8 @@ function Landing() {
     <div className={classes.fullscreen}>
       <header className={classes.appHeader}>
         {/*<div className={classes.fullscreen}></div>*/}
-        <div>
-          <p className={classes.title}>
+        <div className={classes.title}>
+          <p >
             California’s Largest Lake: From Environmental Disaster to Green Powerhouse?
           </p>
           <p className={classes.byline}>

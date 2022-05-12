@@ -37,7 +37,7 @@ root.render(
       <Viz3 />
       <Viz4 />
       <ClosingImageScroller />
-          <Footer />
+      <Footer />
     </div>
   // </React.StrictMode>
 );

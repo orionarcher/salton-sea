@@ -7,6 +7,8 @@ import plant from './assets/plant.jpeg'
 import './css/styles.css'
 import ImagesDiv from "./ImagesDiv";
 
+import 'typeface-lato'
+
 const useStyles = createUseStyles({
     stepsContainer: {
         overflow: 'auto',
@@ -28,7 +30,7 @@ const useStyles = createUseStyles({
         color: '#111',
         padding: '1.3rem',
         fontSize: '1.3rem',
-        fontFamily: 'Merriweather',
+        fontFamily: 'lato',
         fontWeight: 400,
         lineHeight: '1.9rem',
 
@@ -69,7 +71,7 @@ const ClosingImageScroller = () => {
         'Lithium extraction could transform the high-poverty communities surrounding the Sea, which have ' +
         'some of the highest unemployment rates in the state.',
         'A successful lithium industry could also produce the long-missing resources needed to clean up the ' +
-        'Salton Sea and at last return it to its former glory.',
+        'Salton Sea and return it to its former glory.',
         'Some experts say the California “white gold rush” is already on. Companies like General Motors and ' +
         'Berkshire Hathaway have already announced investments in closed-loop, geothermal lithium extraction operations.',
         'Meanwhile, state lawmakers have proposed hundreds of millions in tax incentives for lithium entrepreneurship ' +

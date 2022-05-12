@@ -5,6 +5,8 @@ import mockup from "./assets/new_pictures/mockup.jpg";
 import BarChart from "./BarChart";
 import * as d3 from "d3";
 
+import 'typeface-lato'
+
 const useStyles = createUseStyles({
     graphicContainer: {
         padding: '40vh 2vw 60vh',
@@ -33,6 +35,8 @@ const useStyles = createUseStyles({
         flexBasis: '60%',
         flexDirection: 'column',
         position: 'absolute',
+        maxWidth: '95%',
+
         // top: '20vh',
         // height: '60vh',
     },
@@ -48,7 +52,7 @@ const useStyles = createUseStyles({
             textAlign: 'center',
             padding: '1.3rem',
             fontSize: '1.3rem',
-            fontFamily: 'Merriweather',
+            fontFamily: 'lato',
             fontWeight: 400,
             lineHeight: '1.9rem',
             margin: 0,
@@ -67,8 +71,8 @@ const Viz4 = () => {
     const classes = useStyles()
 
     const copyText = [
-        'But global demand is expected to grow nearly 20-fold by 2050.',
-        'This would vastly outpace current supply.',
+        'Current annual production is around 80 kilotons per year.',
+        'But global demand is expected to grow nearly 20-fold by 2050. This would vastly outpace current supply.',
         'In the long term, the Salton Sea region will become just one contributor to a ballooning global ' +
         'market—but a strategically critical one for U.S. energy independence.'
     ]
@@ -112,7 +116,6 @@ const Viz4 = () => {
 
     const changeData = () => {
         setData((currentStepIndex > 1) ? demand2 : demand1);
-        console.log(currentStepIndex, data[1].frequency)
     }
 
     return (

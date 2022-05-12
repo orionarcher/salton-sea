@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import bombayBeach from './assets/bombay-beach.jpeg'
 import landing from './assets/new_pictures/landing.jpeg'
 
+import 'typeface-lato'
 
 const useStyles = createUseStyles({
   title: {
@@ -15,19 +16,20 @@ const useStyles = createUseStyles({
     padding: "10px"
   },
   byline: {
+    width: "60vw",
+    marginTop: '1vh',
+    margin: 0,
+    padding: 0,
     color: "black",
-    fontSize: "calc(10px + 2vmin)",
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
-    // borderRadius: "10px",
+    fontSize: "calc(20px)",
+    bottom: 10,
+    fontFamily: 'lato',
     justifyContent: "center",
-    position: "absolute",
-    bottom: "2vh",
-    // marginTop: "60vh",
-    width: "40vw",
   },
   acknowledgement: {
+    fontFamily: 'lato',
     width: "60vw",
-    margin: '2vh',
+    margin: '1vh',
     color: "black",
     fontSize: "calc(14px)",
     bottom: 10,
@@ -35,9 +37,7 @@ const useStyles = createUseStyles({
     justifyContent: "center",
   },
   appHeader: {
-    fontFamily: 'Merriweather',
-    // backgroundColor: "#fff",
-    // minHeight: "100vh",
+    fontFamily: 'sans-serif',
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -49,17 +49,14 @@ const useStyles = createUseStyles({
     textAlign: 'center',
     padding: '0',
     margin: '0',
-    height: '15vh',
+    height: '23vh',
     minWidth: '100vw',
-    // minHeight: '100vh',
     transition: '0.5s',
     zIndex: '-100',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundColor: 'rgb(251,251,251)',
-
-// backgroundImage: `url(${landing})`
+    backgroundColor: '#c3b5b0',
   }
 });
 
@@ -69,6 +66,9 @@ function Footer() {
   return (
     <div className={classes.fullscreen}>
       <header className={classes.appHeader}>
+        <p className={classes.byline}>
+          Sources & Acknowledgements
+        </p>
         <p className={classes.acknowledgement}>
           Data for the first and second plots came from {' '}
           <a href="https://www.world-mining-data.info/?World_Mining_Data">
@@ -76,7 +76,9 @@ function Footer() {
           </a> and {' '}
           <a href="https://www.iea.org/data-and-statistics/charts/total-lithium-demand-by-sector-and-scenario-2020-2040">
             {'The International Energy Authority'}
-          </a> respectively. <br/> <br/>
+          </a> respectively. The postcard image and photo of Governor Newson are from the California Legislative Analyst’s
+          Office and the California Governor’s Office, respectively.
+          <br/> <br/>
           This project was created as part of a final project for UC Berkeley's Information Visualization and
           presentation class. Special thanks to Marti Hearst, Ian Wu, and @jsonkao for
           making this project possible.

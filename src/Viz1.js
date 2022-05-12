@@ -5,6 +5,9 @@ import mockup from "./assets/new_pictures/mockup.jpg";
 import BarChart from "./BarChart";
 import * as d3 from "d3";
 
+import 'typeface-lato'
+
+
 const useStyles = createUseStyles({
     graphicContainer: {
         padding: '40vh 2vw 60vh',
@@ -33,6 +36,7 @@ const useStyles = createUseStyles({
         flexBasis: '60%',
         flexDirection: 'column',
         position: 'absolute',
+        maxWidth: '95%',
         // top: '20vh',
         // height: '60vh',
     },
@@ -48,7 +52,7 @@ const useStyles = createUseStyles({
             textAlign: 'center',
             padding: '1.3rem',
             fontSize: '1.3rem',
-            fontFamily: 'Merriweather',
+            fontFamily: 'lato',
             fontWeight: 400,
             lineHeight: '1.9rem',
             margin: 0,
@@ -77,7 +81,6 @@ const Viz1 = () => {
 
     useEffect( () => {
         // setChart(draw())
-        console.log('i fire once 2')
     }, [])
 
     const onStepEnter = ({ data }) => {
@@ -128,18 +131,13 @@ const Viz1 = () => {
     const datas = [lithium1, lithium2]
 
     useEffect(() => {
-        // const chart = changeData();
         const i = currentStepIndex > 1 ? 0 : 1
         setData(datas[i]);
-        console.log(i, currentStepIndex, data[6].frequency)
     }, [currentStepIndex]);
 
     const changeData = () => {
         const i = currentStepIndex > 1 ? 0 : 1
         setData(datas[i]);
-        console.log(i, currentStepIndex, data[6].frequency)
-        // console.log(currentStepIndex)
-        // console.log(data[6].frequency)
     }
 
     return (
@@ -174,7 +172,7 @@ const Viz1 = () => {
                         step={currentStepIndex}
                         colorFunc={colorFunc}
                         order={order}
-                        chartTitle={'Annual Production'}
+                        chartTitle={'Current Annual Production'}
                         axisTitle={'↑ Kilotons Lithium'}
                     />
                 </div>

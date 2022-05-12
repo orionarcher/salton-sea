@@ -6,6 +6,8 @@ import phones from './assets/individual_svg/phones.jpg'
 import planets from './assets/new_pictures/circularPlanets.jpg'
 import React, { useState, useEffect } from 'react';
 
+import 'typeface-lato'
+
 const useStyles = createUseStyles({
     graphicContainer: {
         padding: '40vh 2vw 60vh',
@@ -35,8 +37,8 @@ const useStyles = createUseStyles({
         flexDirection: 'column',
         position: 'absolute',
         transition: '1s',
-        maxWidth: '100%',
-        maxHeight: '100%',
+        maxWidth: '95%',
+        // maxHeight: '100%',
         // aspectRatio: 'auto',
     },
     scroller: {
@@ -51,7 +53,7 @@ const useStyles = createUseStyles({
             textAlign: 'center',
             padding: '1.3rem',
             fontSize: '1.3rem',
-            fontFamily: 'Merriweather',
+            fontFamily: 'lato',
             fontWeight: 400,
             lineHeight: '1.9rem',
             margin: 0,
@@ -75,11 +77,11 @@ const Viz2 = () => {
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const classes = useStyles()
     const copyText = [
-        'According to estimates, the Salton Sea reservoir contains more than 1,000,000 metric tons of ' +
-        'lithium—enough to meet current global demand.',
+        'According to estimates, the Salton Sea reservoir contains up to six million metric tons of ' +
+        'lithium—enough to meet current global demand for decades.',
         'That’s enough energy to build 100 billion smartphones.',
-        'Or 40 million electric cars.',
-        'With the energy from one million tons of lithium, you could drive a Tesla Model 3 to Pluto ' +
+        // 'Or 40 million electric cars.',
+        'With the energy from a one million ton lithium battery, you could drive a Tesla Model 3 to Pluto ' +
         '… and back.',
     ]
 
@@ -125,11 +127,11 @@ const Viz2 = () => {
                     <img src={phones} className={classes.arg} style={{
                         opacity: currentStepIndex === 2 ? 1 : 0
                     }} alt={'121'}/>
-                    <img src={cars} className={classes.arg} style={{
-                        opacity: currentStepIndex === 3 ? 1 : 0
-                    }} alt={'121'}/>
+                    {/*<img src={cars} className={classes.arg} style={{*/}
+                    {/*    opacity: currentStepIndex === 3 ? 1 : 0*/}
+                    {/*}} alt={'121'}/>*/}
                     <img src={planets} className={classes.arg} style={{
-                        opacity: currentStepIndex >= 4 ? 1 : 0,
+                        opacity: currentStepIndex >= 3 ? 1 : 0,
                         top: '5vh'
                     }} alt={'121'}/>
                 </div>
