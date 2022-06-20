@@ -80,8 +80,17 @@ const Viz2 = () => {
     const copyText = [
         'More than a mile below the Salton Sea and the surrounding areas lie geothermal reservoirs full of superheated ' +
         'saltwater brine that contains lithium.',
-        'Geothermal plants are already pumping the 600 degree water up from underground to generate geothermal ' +
-        'energy before sending it back down.',
+        // 'Geothermal plants are already pumping the 600 degree water up from underground to generate geothermal ' +
+        // 'energy before sending it back down.',
+
+        <a>
+            Geothermal plants are already pumping the superheated steam up from underground to {' '}
+            <a href={"https://www.slc.ca.gov/wp-content/uploads/2018/10/07-TheGeysersandSaltonSeaFields.pdf"}>
+                generate geothermal energy
+            </a>
+            {' '} before sending it back down.
+        </a>,
+
         'Extracting Lithium from the brine would simply add one more step to this closed-loop process.',
         'Since no new mining is needed, the Salton sea would be one of the cleanest lithium extraction operations in the world.',
     ]

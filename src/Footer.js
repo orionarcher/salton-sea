@@ -8,31 +8,33 @@ import 'typeface-lato'
 const useStyles = createUseStyles({
   title: {
     color: "black",
-    fontSize: "calc(10px + 4vmin)",
-    width: "70vw",
+    fontSize: "1.2rem",
+    width: "50vw",
     marginTop: "3vh",
     backgroundColor: 'rgba(255, 255, 255, 0.6)',
-    borderRadius: "10px",
-    padding: "10px"
+    borderRadius: "2vh",
+    padding: "2vh"
   },
   byline: {
     width: "60vw",
     marginTop: '1vh',
-    margin: 0,
+    marginBottom: 5,
     padding: 0,
     color: "black",
     fontSize: "calc(20px)",
-    bottom: 10,
+    bottom: '1vh',
     fontFamily: 'lato',
     justifyContent: "center",
   },
   acknowledgement: {
     fontFamily: 'lato',
-    width: "60vw",
+    textAlign: 'left',
+    width: "50vw",
     margin: '1vh',
     color: "black",
-    fontSize: "calc(14px)",
-    bottom: 10,
+    fontSize: "0.8rem",
+    bottom: '1vh',
+    marginBottom: 5,
     // position: "fixed",
     justifyContent: "center",
   },
@@ -49,7 +51,6 @@ const useStyles = createUseStyles({
     textAlign: 'center',
     padding: '0',
     margin: '0',
-    height: '23vh',
     minWidth: '100vw',
     transition: '0.5s',
     zIndex: '-100',
@@ -57,6 +58,7 @@ const useStyles = createUseStyles({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundColor: '#c3b5b0',
+    paddingBottom: '10px',
   }
 });
 
@@ -70,13 +72,7 @@ function Footer() {
           Sources & Acknowledgements
         </p>
         <p className={classes.acknowledgement}>
-          Data for the first and second plots came from {' '}
-          <a href="https://www.world-mining-data.info/?World_Mining_Data">
-            {'Austrian Federal Ministry of Agriculture, Regions and Tourism'}
-          </a> and {' '}
-          <a href="https://www.iea.org/data-and-statistics/charts/total-lithium-demand-by-sector-and-scenario-2020-2040">
-            {'The International Energy Authority'}
-          </a> respectively. The postcard image and photo of Governor Newson are from the California Legislative Analyst’s
+          The postcard image and photo of Governor Newson are from the California Legislative Analyst’s
           Office and the California Governor’s Office, respectively.
           <br/> <br/>
           This project was created as part of a final project for UC Berkeley's Information Visualization and

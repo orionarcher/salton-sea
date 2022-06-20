@@ -77,12 +77,14 @@ const Viz2 = () => {
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const classes = useStyles()
     const copyText = [
-        'According to estimates, the Salton Sea reservoir contains up to six million metric tons of ' +
-        'lithium—enough to meet current global demand for decades.',
-        'That’s enough energy to build 100 billion smartphones.',
-        // 'Or 40 million electric cars.',
-        'With the energy from a one million ton lithium battery, you could drive a Tesla Model 3 to Pluto ' +
-        '… and back.',
+        <a>
+            <a href={"https://newscenter.lbl.gov/2022/02/16/quantifying-californias-lithium-valley-can-it-power-our-ev-revolution/"}>
+                According to estimates</a>, the Salton Sea reservoir contains up to six million metric tons of
+            lithium—roughly the mass of the Pyramid of Giza and enough to meet current global demand for decades.
+        </a>,
+        'That’s enough lithium to build 100 billion smartphones.',
+        'If you put all that Lithium in a single battery, you could drive a Tesla Model 3 to Pluto and back' +
+        '… five times.',
     ]
 
     const onStepEnter = ({ data }) => {

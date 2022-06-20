@@ -9,7 +9,7 @@ import 'typeface-lato'
 
 const useStyles = createUseStyles({
     graphicContainer: {
-        padding: '40vh 2vw 60vh',
+        padding: '40vh 2vw 30vh',
         display: 'flex',
         justifyContent: 'space-between',
     },
@@ -61,6 +61,12 @@ const useStyles = createUseStyles({
             marginBottom: 0,
         },
     },
+    caption: {
+        fontSize: '0.6rem',
+        position: 'relative',
+        top: '-3vh',
+        textAlign: 'left'
+    }
 
 });
 
@@ -153,6 +159,11 @@ const Viz4 = () => {
                         chartTitle={'Projected Annual Demand'}
                         axisTitle={'↑ Kilotons Lithium'}
                     />
+                    <div className={classes.caption}>
+                        Source: {' '}
+                        <a href={"https://www.world-mining-data.info/?World_Mining_Data"}>
+                            Austrian Federal Ministry of Agriculture, Regions and Tourism</a>
+                    </div>
                 </div>
             </div>
 

@@ -61,6 +61,12 @@ const useStyles = createUseStyles({
             marginBottom: 0,
         },
     },
+    caption: {
+        fontSize: '0.6rem',
+        position: 'relative',
+        top: '-3vh',
+        textAlign: 'left'
+    }
 
 });
 
@@ -172,9 +178,14 @@ const Viz1 = () => {
                         step={currentStepIndex}
                         colorFunc={colorFunc}
                         order={order}
-                        chartTitle={'Current Annual Production'}
+                        chartTitle={'Current and Projected Annual Production'}
                         axisTitle={'↑ Kilotons Lithium'}
                     />
+                    <div className={classes.caption}>
+                        Source: {' '}
+                        <a href={"https://www.iea.org/data-and-statistics/charts/total-lithium-demand-by-sector-and-scenario-2020-2040"}>
+                            International Energy Agency 2021</a>
+                    </div>
                 </div>
             </div>
 
