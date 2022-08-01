@@ -82,8 +82,8 @@ const Viz2 = () => {
                 According to estimates</a>, the Salton Sea reservoir contains up to six million metric tons of
             lithium—roughly the mass of the Pyramid of Giza and enough to meet current global demand for decades.
         </a>,
-        'That’s enough lithium to build 100 billion smartphones.',
-        'If you put all that Lithium in a single battery, you could drive a Tesla Model 3 to Pluto and back' +
+        'That’s enough lithium to build batteries for 600 billion smartphones.',
+        'If you put all that Lithium into a single battery, you could drive a Tesla Model 3 to Pluto and back' +
         '… five times.',
     ]
 
