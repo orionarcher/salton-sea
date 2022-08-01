@@ -80,7 +80,7 @@ function Landing() {
         {/*<div className={classes.fullscreen}></div>*/}
         <div className={classes.title}>
           <p >
-            California’s Largest Lake: From Environmental Disaster to Green Powerhouse?
+            California’s Largest Lake: From Environmental Disaster to Green Energy Powerhouse?
           </p>
           <p className={classes.byline}>
             By Orion Cohen and Derek Schwabe
